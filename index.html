@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>P2P Cycle in SAP MM | Aditya Mohan</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <span class="brand-tag">SAP MM</span>
+      <span class="brand-title">P2P Cycle</span>
+    </div>
+    <div class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#stages">Stages</a>
+      <a href="#flowchart">Flow</a>
+      <a href="#features">Features</a>
+      <a href="#future">Future</a>
+    </div>
+    <div class="nav-meta">Roll No: 2305023</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="overview">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Academic Project · KIIT · 2023</div>
+    <h1 class="hero-title">Procure<span class="italic">-to-</span>Pay<br/>Cycle in SAP MM</h1>
+    <p class="hero-sub">An end-to-end exploration of how SAP Materials Management automates procurement — from vendor registration to final payment.</p>
+    <div class="hero-author">
+      <div class="author-avatar">AM</div>
+      <div>
+        <div class="author-name">Aditya Mohan</div>
+        <div class="author-detail">SAP Data Analytics Engineer · Kalinga Institute of Industrial Technology</div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">6</span><span class="stat-label">Stages</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">6</span><span class="stat-label">T-Codes</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">1</span><span class="stat-label">System</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">3-Way</span><span class="stat-label">Match</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="ring ring-1"></div>
+    <div class="ring ring-2"></div>
+    <div class="ring ring-3"></div>
+    <div class="center-logo">SAP<br/><span>MM</span></div>
+  </div>
+</section>
+
+<!-- PROBLEM STATEMENT -->
+<section class="problem-section">
+  <div class="container">
+    <div class="section-label">Problem Statement</div>
+    <div class="problem-grid">
+      <div class="problem-text">
+        <h2>Why Manual Procurement Fails</h2>
+        <p>Procurement of goods and services is critical to organizational operations. When managed manually, it introduces significant risks across every stage of the process — from vendor onboarding to final payment.</p>
+        <p>SAP MM solves this by centralizing all procurement activities into a single integrated system, ensuring efficiency, accuracy, and full process control.</p>
+      </div>
+      <div class="pain-points">
+        <div class="pain-item"><div class="pain-icon">⚠</div><div><strong>Processing Errors</strong><p>Manual data entry leads to costly mistakes in orders and invoices</p></div></div>
+        <div class="pain-item"><div class="pain-icon">📁</div><div><strong>Poor Record Keeping</strong><p>Scattered documents make auditing and tracking nearly impossible</p></div></div>
+        <div class="pain-item"><div class="pain-icon">⏱</div><div><strong>Delayed Approvals</strong><p>No automated workflow means bottlenecks at every approval step</p></div></div>
+        <div class="pain-item"><div class="pain-icon">🔍</div><div><strong>No Visibility</strong><p>Zero real-time insight into procurement status or spend</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAGES -->
+<section class="stages-section" id="stages">
+  <div class="container">
+    <div class="section-label">Six Key Stages</div>
+    <h2 class="section-title">The P2P Process, Step by Step</h2>
+    <p class="section-sub">Click any stage to explore details, key inputs, outputs, and what happens inside SAP.</p>
+
+    <div class="stages-nav">
+      <button class="snav-btn active" onclick="showStage(0)">
+        <span class="snav-num">01</span><span class="snav-label">Vendor Creation</span>
+      </button>
+      <div class="snav-connector"></div>
+      <button class="snav-btn" onclick="showStage(1)">
+        <span class="snav-num">02</span><span class="snav-label">Purchase Req.</span>
+      </button>
+      <div class="snav-connector"></div>
+      <button class="snav-btn" onclick="showStage(2)">
+        <span class="snav-num">03</span><span class="snav-label">Purchase Order</span>
+      </button>
+      <div class="snav-connector"></div>
+      <button class="snav-btn" onclick="showStage(3)">
+        <span class="snav-num">04</span><span class="snav-label">Goods Receipt</span>
+      </button>
+      <div class="snav-connector"></div>
+      <button class="snav-btn" onclick="showStage(4)">
+        <span class="snav-num">05</span><span class="snav-label">Inv. Verification</span>
+      </button>
+      <div class="snav-connector"></div>
+      <button class="snav-btn" onclick="showStage(5)">
+        <span class="snav-num">06</span><span class="snav-label">Payment</span>
+      </button>
+    </div>
+
+    <div class="stage-detail" id="stageDetail"></div>
+  </div>
+</section>
+
+<!-- FLOWCHART -->
+<section class="flow-section" id="flowchart">
+  <div class="container">
+    <div class="section-label">Process Flow</div>
+    <h2 class="section-title">End-to-End P2P Flow</h2>
+    <div class="flowchart">
+      <div class="flow-node start-node">
+        <div class="fn-icon">🏁</div>
+        <div class="fn-title">Start</div>
+        <div class="fn-sub">Need identified</div>
+      </div>
+      <div class="flow-arrow-down"></div>
+      <div class="flow-node">
+        <div class="fn-tcode">XK01</div>
+        <div class="fn-title">Vendor Creation</div>
+        <div class="fn-sub">Register vendor in SAP</div>
+      </div>
+      <div class="flow-arrow-down"></div>
+      <div class="flow-node">
+        <div class="fn-tcode">ME51N</div>
+        <div class="fn-title">Purchase Requisition</div>
+        <div class="fn-sub">Internal procurement request</div>
+      </div>
+      <div class="flow-arrow-down"></div>
+      <div class="flow-node">
+        <div class="fn-tcode">ME21N</div>
+        <div class="fn-title">Purchase Order</div>
+        <div class="fn-sub">Legal procurement document</div>
+      </div>
+      <div class="flow-split">
+        <div class="split-line"></div>
+        <div class="split-label">Vendor delivers goods</div>
+      </div>
+      <div class="flow-node">
+        <div class="fn-tcode">MIGO</div>
+        <div class="fn-title">Goods Receipt</div>
+        <div class="fn-sub">Stock &amp; inventory updated</div>
+      </div>
+      <div class="flow-arrow-down"></div>
+      <div class="flow-match">
+        <div class="match-box">
+          <div class="match-title">3-Way Match</div>
+          <div class="match-items">
+            <span class="match-item">PO</span>
+            <span class="match-sym">✕</span>
+            <span class="match-item">GR</span>
+            <span class="match-sym">✕</span>
+            <span class="match-item">Invoice</span>
+          </div>
+        </div>
+      </div>
+      <div class="flow-arrow-down"></div>
+      <div class="flow-node">
+        <div class="fn-tcode">MIRO</div>
+        <div class="fn-title">Invoice Verification</div>
+        <div class="fn-sub">Discrepancies blocked automatically</div>
+      </div>
+      <div class="flow-arrow-down"></div>
+      <div class="flow-node">
+        <div class="fn-tcode">F-53</div>
+        <div class="fn-title">Payment Processing</div>
+        <div class="fn-sub">Vendor paid, GL updated</div>
+      </div>
+      <div class="flow-arrow-down"></div>
+      <div class="flow-node end-node">
+        <div class="fn-icon">✔</div>
+        <div class="fn-title">Complete</div>
+        <div class="fn-sub">Cycle closed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section" id="features">
+  <div class="container">
+    <div class="section-label">Key Features</div>
+    <h2 class="section-title">Why SAP P2P Stands Out</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="fc-icon">⚡</div>
+        <h3>End-to-End Automation</h3>
+        <p>The entire sequence from purchase requisition to final payment is handled inside a single system, drastically reducing processing time and human error.</p>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon">👁</div>
+        <h3>Real-Time Visibility</h3>
+        <p>Organizations can immediately see the state of orders, pricing, and all aspects of procurement — enabling faster decisions and better operational performance.</p>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon">✅</div>
+        <h3>Data Accuracy</h3>
+        <p>Validation at every step — including three-way invoice matching — detects inconsistencies right away, ensuring only correct payments are processed.</p>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon">🔗</div>
+        <h3>FI Integration</h3>
+        <p>Deep integration with SAP Financial Accounting (FI) means all transactions are recorded automatically, increasing transparency and simplifying audits.</p>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon">🤝</div>
+        <h3>Vendor Management</h3>
+        <p>Centralized vendor master data is maintained and regularly updated, making supplier management structured and consistent across the organization.</p>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon">🛡</div>
+        <h3>Process Control</h3>
+        <p>Built-in approval workflows, release strategies, and system blocks prevent unauthorized purchases or incorrect payments at every stage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUTURE -->
+<section class="future-section" id="future">
+  <div class="container">
+    <div class="section-label">Future Improvements</div>
+    <h2 class="section-title">Where P2P Is Headed</h2>
+    <div class="future-grid">
+      <div class="future-card fc-ai">
+        <div class="future-num">01</div>
+        <h3>AI &amp; Machine Learning</h3>
+        <p>Improve vendor selection, demand forecasting, and purchasing decisions using intelligent algorithms trained on historical procurement data.</p>
+      </div>
+      <div class="future-card fc-pred">
+        <div class="future-num">02</div>
+        <h3>Predictive Analytics</h3>
+        <p>Forecast inventory needs to prevent stockouts and excess inventory — keeping procurement lean and just-in-time.</p>
+      </div>
+      <div class="future-card fc-rpa">
+        <div class="future-num">03</div>
+        <h3>Robotic Process Automation</h3>
+        <p>Automate repetitive tasks like invoice matching and routine transaction processing, freeing employees for higher-value work.</p>
+      </div>
+      <div class="future-card fc-cloud">
+        <div class="future-num">04</div>
+        <h3>SAP S/4HANA Cloud</h3>
+        <p>Cloud-based deployment increases scalability, enables greater departmental collaboration, and improves responsiveness across the procurement function.</p>
+      </div>
+      <div class="future-card fc-block">
+        <div class="future-num">05</div>
+        <h3>Blockchain Integration</h3>
+        <p>Tamper-proof, traceable transaction records between organization and vendor — enhancing financial security and trust in supplier relationships.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+<section class="conclusion-section">
+  <div class="container">
+    <div class="conclusion-inner">
+      <div class="section-label">Conclusion</div>
+      <h2>A Dependable Procurement Solution</h2>
+      <p>The Procure-to-Pay process in SAP MM delivers a streamlined, controlled, and transparent approach to procurement. By integrating supplier management, purchasing, goods receiving, invoice verification, and payments into one system, it minimizes errors and maximizes operational efficiency.</p>
+      <p>Standardization of procurement reduces manual workload, and real-time financial data empowers better organizational decisions.</p>
+      <div class="ref-block">
+        <div class="ref-title">References</div>
+        <ol>
+          <li>SAP Help Portal — Materials Management (MM) Module Documentation. SAP SE.</li>
+          <li>Leimbach, T. &amp; Wenzel, T. (2019). <em>SAP MM Purchasing</em>. Rheinwerk Publishing.</li>
+          <li>Kalinga Institute of Industrial Technology — SAP Data Analytics Engineering Course Materials (2023).</li>
+          <li>SAP S/4HANA Cloud Documentation. SAP SE. <a href="https://help.sap.com" target="_blank">https://help.sap.com</a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>© 2023 Aditya Mohan · Roll No: 2305023 · KIIT</div>
+    <div>SAP Data Analytics Engineer</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
